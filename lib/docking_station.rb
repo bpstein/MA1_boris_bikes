@@ -25,8 +25,6 @@ class DockingStation
 
   private 
 
-  
-
   def full? 
     @bikes.count == capacity
   end
