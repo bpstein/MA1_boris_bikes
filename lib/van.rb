@@ -1,3 +1,7 @@
+require_relative 'garage'
+require_relative 'docking_station'
+require_relative 'bike'
+
 class Van
 
   attr_reader :van_bikes
@@ -7,7 +11,8 @@ class Van
   end
 
   def take_broken_bikes(docking_station)
-    taken = docking_station.bikes.map {|bike| bike.broken? }
+    taken = docking_station.bikes.select {|bike| bike.broken? }
+    print "#{taken}"
     store_broken_bikes(taken)
   end
 
@@ -18,7 +23,7 @@ class Van
   private 
 
   def store_broken_bikes(taken)
-    van_bikes = taken
+    @van_bikes = taken
     return true if taken.length > 0 
     false
   end

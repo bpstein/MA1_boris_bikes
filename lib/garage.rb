@@ -1,3 +1,7 @@
+require_relative 'van'
+require_relative 'docking_station'
+require_relative 'bike'
+
 class Garage
 
   attr_accessor :bikes_to_repair

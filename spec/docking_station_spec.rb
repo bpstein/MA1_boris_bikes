@@ -39,7 +39,7 @@ describe DockingStation do
     end
 
     it 'responds to bike' do 
-      expect(subject).to respond_to :bike
+      expect(subject).to respond_to :bikes
     end
 
     it 'returns docked bikes' do 
