@@ -2,7 +2,7 @@ require 'docking_station'
 
 describe DockingStation do
   
-  context 'releasing a bike'
+  describe 'releasing a bike' do 
     it 'responds to release_bike' do
       expect(subject).to respond_to :release_bike
     end
@@ -21,8 +21,9 @@ describe DockingStation do
     it 'raises an error when no bikes are available' do 
       expect { subject.release_bike }.to raise_error('Sorry, no bikes available.')
     end
+  end
 
-  context 'docking a bike'
+  describe 'docking a bike' do 
     it 'allows a bike to be docked' do 
       expect(subject).to respond_to(:dock).with(1).argument
     end
@@ -42,13 +43,15 @@ describe DockingStation do
       expect(bike).to eq bike
     end 
 
-    it 'has a default capacity when no explicit capacity is provided' do 
-      expect(subject.capacity).to eq DockingStation::DEFAULT_CAPACITY
-    end
-
     it 'raises an error when a station is full' do 
       subject.capacity.times{ subject.dock(Bike.new) }
       expect { subject.dock(Bike.new) }.to raise_error('Sorry, this station is full.')
     end
+  end
 
+  describe 'initializing default station values' do 
+    it 'has a default capacity when no explicit capacity is provided' do 
+      expect(subject.capacity).to eq DockingStation::DEFAULT_CAPACITY
+    end
+  end
 end
