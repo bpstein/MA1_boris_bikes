@@ -9,4 +9,12 @@ class Garage
   def hold_broken_bikes(van_bikes)
     @bikes_to_repair = van_bikes
   end
+
+  def fix_bikes
+    test_array = []
+    @bikes_to_repair.map do |bike|
+      bike.broken = false
+    end
+  end
+
 end

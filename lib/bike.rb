@@ -1,5 +1,8 @@
 class Bike
 
+attr_accessor :broken
+
+
   def working?
     true
   end
@@ -8,8 +11,8 @@ class Bike
     @broken = true
   end
 
-  def broken? 
+  def broken?
     @broken
   end
-  
+
 end

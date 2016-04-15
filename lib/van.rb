@@ -3,10 +3,9 @@ require_relative 'docking_station'
 require_relative 'bike'
 
 class Van
-
   attr_reader :van_bikes
 
-  def initialize 
+  def initialize
     @van_bikes = []
   end
 
@@ -18,13 +17,18 @@ class Van
 
   def deliver_broken_bikes(garage)
     garage.hold_broken_bikes(van_bikes)
+    van_bikes = []
   end
 
-  private 
+  def collect_working_bikes(garage)
+    van_bikes = garage.fix_bikes
+  end
+
+  private
 
   def store_broken_bikes(taken)
     @van_bikes = taken
-    return true if taken.length > 0 
+    return true if taken.length > 0
     false
   end
 
